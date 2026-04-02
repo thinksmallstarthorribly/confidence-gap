@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Confidence Gap — What Happens When Capable People Get Stuck | Alex Cooper</title>
+<meta name="description" content="A live talk by Alex Cooper at the Stirling Business Association. April 30, 2026. For capable professionals who keep stalling — and want to know why.">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="The Confidence Gap — What Happens When Capable People Get Stuck">
+<meta property="og:description" content="A live talk by Alex Cooper. April 30, 2026. Stirling Business Association. SBA Members FREE.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   RESET & TOKENS
+───────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#5ec5cc;
+  --teal-d:#3aabb3;
+  --teal-p:rgba(94,197,204,0.08);
+  --teal-b:rgba(94,197,204,0.2);
+  --red:#e05555;
+  --charcoal:#111;
+  --dark:#1a1a2e;
+  --ink:#0d0d0d;
+  --card:#1e1e1e;
+  --rule:rgba(255,255,255,0.07);
+  --dim:rgba(255,255,255,0.4);
+  --faint:rgba(255,255,255,0.15);
+  --bright:rgba(255,255,255,0.9);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--charcoal);
+  color:#fff;
+  margin:0;
+  overflow-x:hidden;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:54px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(17,17,17,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:900;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--teal);text-decoration:none;
+}
+.nav-cta{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:800;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--teal);
+  border:1px solid var(--teal-b);
+  padding:8px 20px;text-decoration:none;
+  transition:all 0.2s;cursor:pointer;background:none;
+}
+.nav-cta:hover{background:var(--teal-p)}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  padding:140px 48px 100px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--rule);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(94,197,204,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(224,85,85,0.03) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:900px;margin:0 auto;
+  position:relative;z-index:1;
+}
+.hero-label{
+  font-size:11px;font-weight:800;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--teal);
+  margin-bottom:28px;display:block;
+}
+.hero-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(48px,8vw,100px);
+  font-weight:900;
+  text-transform:uppercase;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  margin-bottom:36px;
+}
+.hero-title span{color:var(--teal);display:block}
+
+.hero-opener{
+  font-size:17px;line-height:1.8;
+  color:rgba(255,255,255,0.65);
+  max-width:620px;
+  margin-bottom:48px;
+}
+.hero-opener strong{color:#fff;font-weight:700}
+
+.hero-cta-block{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-primary{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;font-weight:900;letter-spacing:0.1em;
+  text-transform:uppercase;
+  background:var(--teal);color:var(--charcoal);
+  border:none;padding:18px 44px;
+  cursor:pointer;text-decoration:none;
+  display:inline-block;
+  transition:all 0.2s;
+}
+.btn-primary:hover{background:#7dd6dc;transform:translateY(-1px)}
+.hero-meta{
+  font-size:12px;color:var(--dim);
+  letter-spacing:0.04em;line-height:1.7;
+}
+.hero-meta strong{color:rgba(255,255,255,0.7)}
+
+/* ─────────────────────────────────────────
+   EVENT STRIP
+───────────────────────────────────────── */
+.event-strip{
+  border-bottom:1px solid var(--rule);
+  padding:0 48px;
+  display:flex;align-items:stretch;
+  overflow-x:auto;
+}
+.event-item{
+  padding:20px 32px;
+  border-right:1px solid var(--rule);
+  white-space:nowrap;flex-shrink:0;
+}
+.event-item:last-child{border-right:none}
+.event-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;color:var(--teal);
+  line-height:1;
+}
+.event-label{
+  font-size:10px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--dim);margin-top:3px;
+}
+
+/* ─────────────────────────────────────────
+   SECTION SHARED
+───────────────────────────────────────── */
+.section{padding:100px 48px;border-bottom:1px solid var(--rule)}
+.section-inner{max-width:900px;margin:0 auto}
+.eyebrow{
+  font-size:10px;font-weight:800;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:20px;
+  display:block;
+}
+.section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,5vw,60px);
+  font-weight:900;text-transform:uppercase;
+  line-height:0.92;letter-spacing:-0.01em;
+  margin-bottom:28px;
+}
+.section-title em{color:var(--teal);font-style:normal}
+.body-copy{
+  font-size:16px;line-height:1.85;
+  color:rgba(255,255,255,0.6);
+  max-width:680px;
+  text-align:justify;
+}
+.body-copy strong{color:rgba(255,255,255,0.85);font-weight:700}
+
+/* ─────────────────────────────────────────
+   PROBLEM SECTION
+───────────────────────────────────────── */
+.problem-section{
+  padding:100px 48px;
+  background:var(--dark);
+  border-bottom:1px solid var(--rule);
+}
+.problem-inner{max-width:900px;margin:0 auto}
+.problem-list{
+  list-style:none;
+  display:flex;flex-direction:column;gap:16px;
+  margin-top:36px;max-width:680px;
+}
+.problem-list li{
+  font-size:15px;line-height:1.7;
+  color:rgba(255,255,255,0.6);
+  padding-left:22px;position:relative;
+}
+.problem-list li::before{
+  content:'';position:absolute;left:0;top:10px;
+  width:8px;height:1px;background:var(--teal);
+}
+.problem-list li strong{color:rgba(255,255,255,0.85)}
+
+.ignition-quote{
+  border-left:2px solid var(--teal);
+  padding:20px 0 20px 24px;
+  margin:36px 0;
+  max-width:680px;
+}
+.ignition-quote p{
+  font-size:18px;line-height:1.7;
+  color:rgba(255,255,255,0.8);
+  font-style:italic;
+}
+
+/* ─────────────────────────────────────────
+   WHAT YOU'LL WALK AWAY WITH
+───────────────────────────────────────── */
+.covers-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;margin-top:48px;
+}
+.covers-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  padding:32px 28px;
+}
+.covers-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:48px;font-weight:900;line-height:1;
+  color:var(--teal);opacity:0.2;
+  margin-bottom:12px;
+}
+.covers-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:17px;font-weight:900;text-transform:uppercase;
+  letter-spacing:0.05em;margin-bottom:8px;
+}
+.covers-body{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.45)}
+
+/* ─────────────────────────────────────────
+   ABOUT ALEX
+───────────────────────────────────────── */
+.about-section{
+  padding:100px 48px;
+  background:var(--dark);
+  border-bottom:1px solid var(--rule);
+}
+.about-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:200px 1fr;
+  gap:48px;align-items:start;
+}
+.about-photo{
+  width:100%;aspect-ratio:1/1;
+  object-fit:cover;object-position:top center;
+  filter:grayscale(20%);
+}
+.about-copy{display:flex;flex-direction:column;gap:20px}
+.about-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:36px;font-weight:900;text-transform:uppercase;
+  letter-spacing:-0.01em;line-height:0.9;
+  margin-bottom:4px;
+}
+.about-title-line{
+  font-size:11px;font-weight:700;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--teal);
+  margin-bottom:16px;
+}
+.about-copy p{
+  font-size:15px;line-height:1.85;
+  color:rgba(255,255,255,0.55);
+  text-align:justify;
+}
+.about-copy p strong{color:rgba(255,255,255,0.85)}
+
+/* ─────────────────────────────────────────
+   EVENT DETAILS
+───────────────────────────────────────── */
+.details-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;margin-top:48px;
+}
+.detail-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  padding:28px 24px;
+}
+.detail-label{
+  font-size:9px;font-weight:800;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--teal);
+  margin-bottom:10px;display:block;
+}
+.detail-value{
+  font-size:15px;line-height:1.6;
+  color:rgba(255,255,255,0.75);
+}
+.detail-value strong{color:#fff}
+
+/* ─────────────────────────────────────────
+   PRICING BAND
+───────────────────────────────────────── */
+.pricing-band{
+  padding:72px 48px;
+  background:linear-gradient(135deg,rgba(94,197,204,0.06) 0%,rgba(94,197,204,0.02) 100%);
+  border-bottom:1px solid rgba(94,197,204,0.15);
+  border-top:1px solid rgba(94,197,204,0.15);
+}
+.pricing-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+}
+.pricing-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  padding:36px 32px;
+  position:relative;
+  text-align:center;
+}
+.pricing-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--teal);
+}
+.pricing-type{
+  font-size:10px;font-weight:800;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--teal);
+  margin-bottom:12px;
+}
+.pricing-amount{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:56px;font-weight:900;line-height:1;
+  color:#fff;letter-spacing:-0.02em;
+  margin-bottom:8px;
+}
+.pricing-note{
+  font-size:13px;color:rgba(255,255,255,0.4);
+  line-height:1.5;
+}
+
+/* ─────────────────────────────────────────
+   CLOSING CTA
+───────────────────────────────────────── */
+.cta-section{
+  padding:120px 48px;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(94,197,204,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-pre{
+  font-size:14px;line-height:1.8;
+  color:rgba(255,255,255,0.35);
+  max-width:520px;margin:0 auto 24px;
+}
+.cta-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(40px,6vw,72px);
+  font-weight:900;text-transform:uppercase;
+  line-height:0.9;letter-spacing:-0.01em;
+  margin-bottom:32px;
+}
+.cta-title span{color:var(--teal)}
+.cta-sub{
+  font-size:16px;line-height:1.75;
+  color:rgba(255,255,255,0.45);
+  max-width:480px;margin:0 auto 48px;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer{
+  padding:32px 48px;
+  border-top:1px solid var(--rule);
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.ft-copy{font-size:11px;color:var(--faint);letter-spacing:0.06em}
+.ft-links{display:flex;gap:20px}
+.ft-links a{
+  font-size:10px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--dim);
+  text-decoration:none;transition:color 0.2s;
+}
+.ft-links a:hover{color:var(--teal)}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:768px){
+  .nav{padding:0 20px}
+  .nav-logo{font-size:12px;letter-spacing:0.08em}
+  .nav-cta{font-size:10px;padding:7px 14px}
+  .hero{padding:110px 24px 72px}
+  .section,.problem-section,.about-section,.cta-section{padding:72px 24px}
+  .event-strip{padding:0 24px}
+  .event-item{padding:16px 20px}
+  .covers-grid,.details-grid{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;gap:28px}
+  .about-photo{max-width:180px}
+  .pricing-band{padding:56px 24px}
+  .pricing-inner{grid-template-columns:1fr;gap:20px}
+  .pricing-card{padding:28px 24px}
+  .pricing-amount{font-size:44px}
+  footer{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="#" class="nav-logo">Think Small, Start Horribly</a>
+  <a href="https://www.eventbrite.com/e/the-confidence-gap-what-happens-when-capable-people-get-stuck-with-alex-tickets-1982852239425?aff=oddtdtcreator" target="_blank" class="nav-cta">Get Tickets</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <span class="hero-label">Stirling Business Association &middot; April 30, 2026</span>
+
+    <h1 class="hero-title">
+      The Confidence<br>
+      <span>Gap.</span>
+    </h1>
+
+    <p class="hero-opener">
+      You are not short on ability. You have proven that repeatedly. The problem is that somewhere between knowing what you are capable of and actually operating at that level, something keeps collapsing. Not dramatically. Quietly. In the kind of way that makes you wonder whether the issue is you.
+      <strong>It is not.</strong>
+    </p>
+
+    <div class="hero-cta-block">
+      <a href="https://www.eventbrite.com/e/the-confidence-gap-what-happens-when-capable-people-get-stuck-with-alex-tickets-1982852239425?aff=oddtdtcreator" target="_blank" class="btn-primary">Reserve Your Seat</a>
+      <div class="hero-meta">
+        <strong>Thursday, April 30</strong> &middot; 8:00 AM<br>
+        SBA Members FREE &middot; Non-Members $15
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EVENT STRIP ── -->
+<div class="event-strip">
+  <div class="event-item">
+    <div class="event-num">Apr 30</div>
+    <div class="event-label">Thursday</div>
+  </div>
+  <div class="event-item">
+    <div class="event-num">8:00 AM</div>
+    <div class="event-label">Doors 7:45</div>
+  </div>
+  <div class="event-item">
+    <div class="event-num">1 Hour</div>
+    <div class="event-label">Live Talk</div>
+  </div>
+  <div class="event-item">
+    <div class="event-num">Free</div>
+    <div class="event-label">Parking + Coffee</div>
+  </div>
+  <div class="event-item">
+    <div class="event-num">SBA</div>
+    <div class="event-label">Members Free</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     THE PROBLEM
+══════════════════════════════════════ -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <span class="eyebrow">The Pattern</span>
+    <h2 class="section-title">Highly Capable.<br><em>Stuck Again.</em></h2>
+
+    <p class="body-copy" style="margin-bottom:28px">
+      There is a specific experience that capable professionals know well. You build momentum. Things are working. You can feel the traction. Then something shifts. The structure destabilises. And instead of a minor setback, it feels like a system failure. You rebuild. You always rebuild. But each time, the baseline drops a little lower and the self-trust erodes a little further.
+    </p>
+
+    <ul class="problem-list">
+      <li>You have started over more times than you can count. Each restart costs more than the last.</li>
+      <li>You know exactly what to do. <strong>You keep not doing it.</strong></li>
+      <li>The gap between your capability and your output has become impossible to ignore.</li>
+      <li>You have consumed every framework, book, and podcast. None of them fixed the actual problem.</li>
+      <li>Somewhere along the way, the pattern stopped feeling like bad luck and started feeling like a verdict.</li>
+    </ul>
+
+    <div class="ignition-quote">
+      <p>"Confidence does not erode because you lack ability. It erodes because your system keeps collapsing before the evidence can accumulate."</p>
+    </div>
+
+    <p class="body-copy">
+      This talk is about the structural fault underneath that pattern. Not the symptoms. Not the surface. The actual circuit that keeps capable people locked in a cycle of momentum and collapse. Once you see it, the way you think about the last few years rearranges itself.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WHAT THE TALK COVERS
+══════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">What You Will Walk Away With</span>
+    <h2 class="section-title">One Hour.<br><em>Four Shifts.</em></h2>
+    <p class="body-copy">
+      This is not a motivational talk. There will be no audience participation exercises and no inspirational quotes on slides. This is a diagnostic session for people who are done with surface-level answers.
+    </p>
+
+    <div class="covers-grid">
+      <div class="covers-card">
+        <div class="covers-num">01</div>
+        <div class="covers-title">The Confidence Circuit</div>
+        <div class="covers-body">Why confidence is not a feeling you wait for but a system you build. The actual mechanism that produces self-trust and why yours keeps resetting.</div>
+      </div>
+      <div class="covers-card">
+        <div class="covers-num">02</div>
+        <div class="covers-title">The Momentum Trap</div>
+        <div class="covers-body">The specific point where capable people stall. Not a lack of effort. A structural fault in how recovery works. You will recognise this immediately.</div>
+      </div>
+      <div class="covers-card">
+        <div class="covers-num">03</div>
+        <div class="covers-title">The Evidence Problem</div>
+        <div class="covers-body">Your brain does not respond to potential. It responds to evidence. Most people are building momentum without ever banking the proof. That is why it collapses.</div>
+      </div>
+      <div class="covers-card">
+        <div class="covers-num">04</div>
+        <div class="covers-title">The First Correction</div>
+        <div class="covers-body">One practical shift you can implement the same day. Not a concept. Not a mindset reframe. A concrete change to how you operate that stops the cycle from repeating.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT ALEX
+══════════════════════════════════════ -->
+<section class="about-section">
+  <div class="about-inner">
+    <img src="" alt="Alex Cooper" class="about-photo" id="alex-photo">
+    <div class="about-copy">
+      <div>
+        <div class="about-name">Alex<br>Cooper</div>
+        <div class="about-title-line">Creator of Life Circuitry</div>
+      </div>
+      <p>
+        Alex built the Life Circuitry framework after years of being the person other people described as capable <strong>while privately running a system that kept collapsing under its own weight.</strong> Not dramatically. Just consistently. Build, drop, rebuild from a slightly lower baseline. Repeat.
+      </p>
+      <p>
+        The frameworks he teaches are not assembled from books. They are the result of working through the actual problem with actual people until the structural fault became visible and fixable. He works with professionals, business owners, and high-capability individuals across Perth who have reached the point where <strong>the pattern itself has become the problem worth solving.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     EVENT DETAILS
+══════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <span class="eyebrow">The Details</span>
+    <h2 class="section-title">Where and<br><em>When.</em></h2>
+
+    <div class="details-grid">
+      <div class="detail-card">
+        <span class="detail-label">Date</span>
+        <div class="detail-value"><strong>Thursday, April 30, 2026</strong><br>8:00 AM to 9:00 AM<br>Doors open 7:45 AM</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Location</span>
+        <div class="detail-value"><strong>Stirling Business Association</strong><br>45 Delawney St<br>Balcatta, WA 6021</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Parking</span>
+        <div class="detail-value"><strong>Free parking</strong> on site.<br>Arrive from 7:45. Coffee is on us.</div>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Tickets</span>
+        <div class="detail-value"><strong>SBA Members:</strong> Free<br><strong>Non-Members:</strong> $15<br>Via Eventbrite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRICING BAND
+══════════════════════════════════════ -->
+<div class="pricing-band">
+  <div class="pricing-inner">
+    <div class="pricing-card">
+      <div class="pricing-type">SBA Members</div>
+      <div class="pricing-amount">FREE</div>
+      <div class="pricing-note">Included with your membership.</div>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-type">Non-Members</div>
+      <div class="pricing-amount"><sup style="font-size:28px;vertical-align:top;opacity:0.5">$</sup>15</div>
+      <div class="pricing-note">One hour. One structural shift. Worth more than the coffee.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CLOSING CTA
+══════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <p class="cta-pre">
+      You already know something is off. You have known for a while. This talk will show you what it is, why it keeps happening, and what to do about it.
+    </p>
+    <h2 class="cta-title">Stop Waiting<br>For the Confidence<br><span>To Arrive.</span></h2>
+    <p class="cta-sub">
+      It does not come first. The evidence does.
+    </p>
+    <a href="https://www.eventbrite.com/e/the-confidence-gap-what-happens-when-capable-people-get-stuck-with-alex-tickets-1982852239425?aff=oddtdtcreator" target="_blank" class="btn-primary" style="font-size:17px;padding:22px 56px">
+      Reserve Your Seat
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="ft-copy">Alex Cooper &copy; 2026 &middot; Think Small, Start Horribly</div>
+  <div class="ft-links">
+    <a href="mailto:hello@thinksmallstarthorribly.com">Contact</a>
+    <a href="https://thinksmallstarthorribly.github.io/foundation-circuit/">Life Circuitry</a>
+  </div>
+</footer>
+
+<script>
+// Embed Alex's photo as data URI on load
+(function(){
+  var img = document.getElementById('alex-photo');
+  if(img) img.src = 'data:image/jpeg;base64,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';
+})();
+</script>
+
+</body>
+</html>
